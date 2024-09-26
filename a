@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عداد النقرات</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .header {
+            position: absolute;
+            top: 10px;
+            font-size: 24px;
+        }
+
+        .counter-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: white;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+        }
+
+        .counter-button:active {
+            background-color: #2980b9;
+        }
+
+        .decrease-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: absolute;
+            bottom: -20px;
+        }
+
+        .decrease-button:active {
+            background-color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">انقر على الدائرة لزيادة العدد</div>
+    <div class="counter-container">
+        <button class="counter-button" onclick="increaseCounter()">0
+            <button class="decrease-button" onclick="decreaseCounter()">▼</button>
+        </button>
+    </div>
+
+    <script>
+        function increaseCounter() {
+            const button = document.querySelector('.counter-button');
+            let count = parseInt(button.childNodes[0].textContent);
+            button.childNodes[0].textContent = ++count;
+        }
+
+        function decreaseCounter() {
+            const button = document.querySelector('.counter-button');
+            let count = parseInt(button.childNodes[0].textContent);
+            if (count > 0) {
+                button.childNodes[0].textContent = --count;
+            }
+        }
+    </script>
+</body>
+</html>
